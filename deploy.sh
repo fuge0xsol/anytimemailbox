@@ -11,7 +11,7 @@ MSG="deploy: refresh data $(date +%F)"
 # 1) GitHub Pages(仓库: <user>/residential-mailbox,Pages 指向 main /docs 或 gh-pages)
 if [ ! -d .git ]; then
   git init && git branch -m main
-  git remote add origin git@github.com:fuge0xsol/mailbox.git
+  git remote add origin git@github.com:fuge0xsol/anytimemailbox.git
 fi
 mkdir -p docs && cp dist/index.html docs/
 git add -A && git commit -m "$MSG" || true
@@ -19,5 +19,5 @@ git push -u origin main
 echo "GitHub Pages: 确认仓库 Settings→Pages 指向 main /(root) 或 /docs"
 
 # 2) Cloudflare Pages(直接上传 dist,项目名自定)
-npx wrangler pages deploy dist --project-name mailbox --commit-dirty=true
-echo "Done. CF: https://mailbox-2yg.pages.dev"
+npx wrangler pages deploy dist --project-name anytimemailbox --commit-dirty=true
+echo "Done. CF: https://anytimemailbox.pages.dev"
